@@ -19,7 +19,7 @@ if(!require(ggthemes)){
 }
 
 
-pptc.folder <- "/home/user/VAF-corr-docker/"
+pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
 source(paste0(pptc.folder, "theme.R"))
 
 # To Fetch Histologies from Histology.Detailed column in 2018-12-13-pdx-clinical-final-for-paper.txt
