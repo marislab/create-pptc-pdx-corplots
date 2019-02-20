@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y git
  
 # clone the most recent version of the pipeline
 WORKDIR /home/user/
-RUN git clone https://github.research.chop.edu/patelk26/VAF-corr-docker.git
+RUN git clone https://github.com/marislab/create-pptc-pdx-corplots.git
 
 
 # Install all the software needed to run the pipeline
