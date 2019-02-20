@@ -1,4 +1,3 @@
-# .libPaths("/Users/patelk26/anaconda3/lib/R/library") # Change lib paths according to your Terminal lib path, that's where all the packages associated with the script will be installed.
 set.seed(12345)
 
 # Checking for required packages, if not found, will be installed
