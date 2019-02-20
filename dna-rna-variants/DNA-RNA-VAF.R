@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript 
 
-# Usage: ./github-DNA-RNA-VAF.R <DNA_MAF.rda> <RNA_MAF.maf> <clinical_file.txt>
+# Usage: ./DNA-RNA-VAF.R <DNA_MAF.rda> <RNA_MAF.maf> <clinical_file.txt>
 
 if(!require(data.table)){
   install.packages("data.table", repos='http://cran.us.r-project.org')
