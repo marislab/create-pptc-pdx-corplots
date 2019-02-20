@@ -51,3 +51,4 @@ resulting_matches <- merge(pptc.merge,rna.model, all.x = T, by = "concat_col")
 # Save new DNA MAF with RNA VAF information as RDA and MAF file
 save(rna.model, file = paste0(Sys.Date(),"-allpdx-clean-maf-241.MAF.rda") )
 write.table(rna.model, file = paste0(Sys.Date(),"-pptc-RNA-VEPpass-nonsilent.maf"), sep = "\t", row.names = F, quote = F, col.names = T)
+
