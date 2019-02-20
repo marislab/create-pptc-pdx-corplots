@@ -1,0 +1,26 @@
+Model,Phase,Phase_1,Total Mutations,Flag
+ALL-46,Diagnosis,Diagnosis,21,2
+ALL-58,Diagnosis,Diagnosis,41,3
+ALL-80,Diagnosis,Diagnosis,18,4
+ALL-102,Diagnosis,Diagnosis,23,5
+ALL-25,Diagnosis,Diagnosis,121,6
+ALL-82,Diagnosis,Diagnosis,32,7
+COG-N-603x,Diagnosis,Diagnosis,9,8
+ICb-9850PNET,Diagnosis,Diagnosis,12,9
+NCH-CA-1,Diagnosis,Diagnosis,18,10
+OS-32,Diagnosis,Diagnosis,53,11
+OS-32,Diagnosis,Diagnosis,53,12
+RH-30,Diagnosis,Diagnosis,36,13
+ALL-121,Relapse 1,Relapse,925,2
+ALL-123,Relapse 1,Relapse,605,3
+ALL-81,Relapse 1,Relapse,323,4
+ALL-105,Relapse 1,Relapse,21,5
+ALL-61,Relapse 1,Relapse,431,6
+ALL-83,Relapse 1,Relapse,55,7
+COG-N-623x,Relapse 1,Relapse,32,8
+IC-22909PNET-rIII,Relapse 1,Relapse,30,9
+NCH-CA-2,Relapse 1,Relapse,98,10
+OS-36,Relapse 1,Relapse,110,11
+OS-36-SJ,Relapse 1,Relapse,37,12
+RH-30R,Relapse 1,Relapse,51,13
+ALL-115,Relapse 3,Relapse,127,5

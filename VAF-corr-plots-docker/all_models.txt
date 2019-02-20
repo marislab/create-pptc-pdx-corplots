@@ -1,0 +1,13 @@
+ALL-46	Diagnosis	PPTC-AF0N-XTP1-A-1-0-D-human	ALL-121	Relapse	PPTC-AF0C-XTP1-B-1-0-D-human
+ALL-58	Diagnosis	PPTC-AF0T-XTP1-A-1-0-D-human	ALL-123	Relapse	PPTC-AF0E-XTP1-A-1-0-D-human
+ALL-80	Diagnosis	PPTC-AF0Y-XTP1-A-1-0-D-human	ALL-81	Relapse	PPTC-AF0Z-XTP1-A-1-0-D-human
+ALL-102	Diagnosis	PPTC-AF02-XTP1-B-1-0-D-human	ALL-105	Relapse	PPTC-AF03-XTP1-A-1-0-D-human
+ALL-82	Diagnosis	PPTC-ALL-82-D-human	ALL-83	Relapse	PPTC-ALL-83-D-human
+COG-N-603x	Diagnosis	PPTC-COG-N-603x-D-human	COG-N-623x	Relapse	PPTC-COG-N-623x-D-human
+ICb-9850PNET	Diagnosis	PPTC-ICb-9850PNET-D-human	IC-22909PNET-rIII	Relapse	PPTC-IC-22909PNET-rIII-D-human
+NCH-CA-1	Diagnose	PPTC-NCH-CA-1-D-human	NCH-CA-2	Relapse	PPTC-NCH-CA-2-D-human
+OS-32	Diagnosis	PPTC-OS-32-D-human	OS-36	Relapse	TARGET-40-PPT077-60A-01D-human
+OS-32	Diagnosis	PPTC-OS-32-D-human	OS-36-SJ	Relapse	PPTC-OS-36-SJ-D-human
+ALL-25	Diagnosis	PPTC-ALL-25-D-human	ALL-61	Relapse	PPTC-AF0V-XTP1-B-1-0-D-human
+ALL-102	Diagnosis	PPTC-AF02-XTP1-B-1-0-D-human	ALL-115	Relapse	PPTC-AF08-XTP1-A-1-0-D-human
+Rh-30	Diagnosis	TARGET-80-PPT045-60A-01D-human	Rh-30R	Relapse	TARGET-80-PPT046-60A-01D-human

@@ -1,0 +1,6 @@
+COG-N-618x	Relapse	PPTC-COG-N-618x-D1-human	COG-N-619x	Relapse	COG-N-619x-D1-human
+COG-N-452x	Relapse	PPTC-COG-N-452x-D-human	COG-N-453x	Relapse	PPTC-COG-N-453x-D-human
+OS-34	Dx	TARGET-40-PPT076-60A-01D-human	OS-34-SJ	Dx	PPTC-OS-34-SJ-D-human
+OS-36	Relapse	TARGET-40-PPT077-60A-01D-human	OS-36-SJ	Relapse	PPTC-OS-36-SJ-D-human
+ALL-32	Relapse	TARGET-10-PPT100-60A-01D-human	ALL-90	Relapse	PPTC-AF11-XTP1-A-1-0-D-human
+ALL-105	Relapse	PPTC-AF03-XTP1-A-1-0-D-human	ALL-115	Relapse	PPTC-AF08-XTP1-A-1-0-D-human
