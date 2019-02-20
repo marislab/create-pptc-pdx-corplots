@@ -16,7 +16,6 @@ Save the Dockerfile in a folder (do not rename the Dockerfile file)
 
 ```
 docker build -t <image_repository>:<tag> <path/to/Dockerfile>
-docker build -t correlation-pipeline:0.1 .
 ```
 
 
