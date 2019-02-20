@@ -12,14 +12,11 @@ This pipeline plots VAF values for various pairs of Samples (Diagnose-Relapse/Di
 - Open docker terminal and execute the following commands
 
 #### Build a docker image
-Create and Save the Dockerfile in a folder (do not rename the Dockerfile file)
+Save the Dockerfile in a folder (do not rename the Dockerfile file)
 
 `docker build -t <image_repository>:<tag> <path/to/Dockerfile>`
+`docker build -t correlation-pipeline:0.1 .`
 
-#### OR
-
-#### Pull image from Docker Hub
-`docker pull <username/image_repository>:<tag>`
 
 #### Running the docker image
 `docker run -i -t <image_repository>:<tag> /bin/bash`
