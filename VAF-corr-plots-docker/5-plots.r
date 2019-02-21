@@ -2,25 +2,14 @@ set.seed(12345)
 
 # Checking for required packages, if not found, will be installed
 
-if(!require(ggplot2)){
-  install.packages("ggplot2", repos='http://cran.us.r-project.org')
-}
-if(!require(ggbeeswarm)){
-  install.packages("ggbeeswarm", repos='http://cran.us.r-project.org')
-}
-if(!require(gghighlight)){
-  install.packages("gghighlight", repos='http://cran.us.r-project.org')
-}
-if(!require(ggrepel)){
-  install.packages("ggrepel", repos='http://cran.us.r-project.org')
-}
-if(!require(ggthemes)){
-  install.packages("ggthemes", repos='http://cran.us.r-project.org')
-}
-if(!require(ggpubr)){
-  install.packages("ggpubr", repos='http://cran.us.r-project.org')
-}
+.libPaths("/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 
+library("ggplot2")
+library("ggbeeswarm")
+library("gghighlight")
+library("ggrepel")
+library("ggthemes")
+library("ggpubr")
 
 
 pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
