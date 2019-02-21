@@ -242,6 +242,8 @@ u <- ggplot(dat3, aes(x = Phase_1, y = log(Total.Mutations,10), color = dat3$Pha
   theme(axis.text.x = element_blank()) + 
   labs(title = "", x = "", y = "Total Mutations")
 
+dat3$logMut <- log(dat3$Total.Mutations,10)
+
 v <- print(ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
                palette = c("dodgerblue3", "firebrick3"), alpha = 0.8,add = "boxplot", 
                add.params = list(fill = "white"))+
