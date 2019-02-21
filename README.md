@@ -1,5 +1,10 @@
 # VAF Correlation Pipeline
 
+Contact | patelk26@email.chop.edu
+Organization | CHOP
+Date | 2019-02-21
+
+
 ## Summary 
 This pipeline plots VAF values for various pairs of Samples (Diagnose-Relapse/Diagnose-Diagnose/Relapse-Relapse, label genes of interest and generates plots of total number of mutation across various samples.
 
