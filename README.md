@@ -1,7 +1,7 @@
 # VAF Correlation Pipeline
 
 | Contact | Organization | Date |
-|:--------|:-------------|:-----|
+|---------|--------------|------|
 |patelk26@email.chop.edu (Khushbu Patel)| CHOP | 2019-02-21 |
 
 
