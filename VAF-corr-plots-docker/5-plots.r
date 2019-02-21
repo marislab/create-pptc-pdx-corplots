@@ -16,8 +16,9 @@ if(!require(ggrepel)){
 if(!require(ggthemes)){
   install.packages("ggthemes", repos='http://cran.us.r-project.org')
 }
-if(!require(devtools)) install.packages("devtools", repos='http://cran.us.r-project.org')
-devtools::install_github("kassambara/ggpubr")
+if(!require(ggpubr)){
+  install.packages("ggpubr", repos='http://cran.us.r-project.org')
+}
 
 
 pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
