@@ -1,6 +1,8 @@
 set.seed(12345)
 
 # Checking for required packages, if not found, will be installed
+.libPaths("/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+
 if(!require(ggplot2)){
   install.packages("ggplot2", repos='http://cran.us.r-project.org')
 }
