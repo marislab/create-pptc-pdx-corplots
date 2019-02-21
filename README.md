@@ -1,7 +1,12 @@
-# VAF-corr-docker
+# VAF Correlation Pipeline
+
+| Contact | Organization | Date |
+|---------|--------------|------|
+|patelk26@email.chop.edu (Khushbu Patel)| CHOP | 2019-02-21 |
+
 
 ## Summary 
-This pipeline plots VAF values for various pairs of Samples (Diagnose-Relapse/Diagnose-Diagnose/Relapse-Relapse, label genes of interest and generates plots of total number of mutation across various samples.
+This pipeline plots VAF values for various pairs of Samples (Diagnose-Relapse/Diagnose-Diagnose/Relapse-Relapse), label genes of interest and generates plots of total number of mutation across various samples.
 
 ## Requirements
 1. [Docker](https://www.docker.com/get-started)
@@ -12,14 +17,11 @@ This pipeline plots VAF values for various pairs of Samples (Diagnose-Relapse/Di
 - Open docker terminal and execute the following commands
 
 #### Build a docker image
-Create and Save the Dockerfile in a folder (do not rename the Dockerfile file)
+Save the Dockerfile in a folder (do not rename the Dockerfile file)
 
 `docker build -t <image_repository>:<tag> <path/to/Dockerfile>`
 
-#### OR
 
-#### Pull image from Docker Hub
-`docker pull <username/image_repository>:<tag>`
 
 #### Running the docker image
 `docker run -i -t <image_repository>:<tag> /bin/bash`
@@ -29,3 +31,12 @@ The above command will open an interactive shell, where you will find the result
 
 #### Coping files from Docker container to Host
 `docker cp <container_Id>:/file/path/within/container /host/path/target`
+
+
+# RNA VAF Comparisons
+
+## Summary
+This script calculates variant allele frequencies for all non-silent VEP passed RNA variants and annotates with its DNA counterpart. The resulting file is a DNA MAF annotated with RNA variants and its corresponding variant allele frequencies.
+
+## How to run
+`Rscript DNA-RNA-VAF.R <DNA_MAF.rda> <RNA_MAF.maf> <clinical_file.txt>`

@@ -13,7 +13,7 @@ for x in dx_rel_files:
     #print(base)
     res = "./Dx-Relapse/"+base+"-vaf.txt"
     
-    df = pd.read_table(x)
+    df = pd.read_csv(x, sep = "\t")
     df.fillna(0, inplace = True)
 
     # pivot table using protein change as index
@@ -55,7 +55,7 @@ for x in same_phase_files:
         base = basename(x).split(".")[0]
         
         res = "./Same-Phase/"+base+"-vaf.txt"
-        df = pd.read_table(x)
+        df = pd.read_csv(x, sep = "\t")
         df.fillna(0, inplace = True)
 
 
@@ -99,7 +99,7 @@ for x in same_phase_files:
         #print(base)
         res = "./Same-Phase/"+base+"-vaf.txt"
         
-        df = pd.read_table(x)
+        df = pd.read_csv(x, sep = "\t")
         df.fillna(0, inplace = True)
         
         # pivot table using protein change as index

@@ -1,29 +1,21 @@
-# .libPaths("/Users/patelk26/anaconda3/lib/R/library") # Change lib paths according to your Terminal lib path, that's where all the packages associated with the script will be installed.
 set.seed(12345)
 
 # Checking for required packages, if not found, will be installed
 
-if(!require(ggplot2)){
-  install.packages("ggplot2", repos='http://cran.us.r-project.org')
-}
-if(!require(ggbeeswarm)){
-  install.packages("ggbeeswarm", repos='http://cran.us.r-project.org')
-}
-if(!require(gghighlight)){
-  install.packages("gghighlight", repos='http://cran.us.r-project.org')
-}
-if(!require(ggrepel)){
-  install.packages("ggrepel", repos='http://cran.us.r-project.org')
-}
-if(!require(ggthemes)){
-  install.packages("ggthemes", repos='http://cran.us.r-project.org')
-}
+.libPaths("/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+
+library("ggplot2")
+library("ggbeeswarm")
+library("gghighlight")
+library("ggrepel")
+library("ggthemes")
+library("ggpubr")
 
 
-pptc.folder <- "/home/user/VAF-corr-docker/"
+pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
 source(paste0(pptc.folder, "theme.R"))
 
-# To Fetch Histologies from Histology.Detailed column in 2018-12-13-pdx-clinical-final-for-paper.txt
+# To Fetch Histologies from Histology.Detailed column 
 df_hist <- read.table("2019-02-20-pdx-clinical-for-web.txt", sep = "\t", header = T)
 
 
@@ -228,6 +220,7 @@ s <- ggplot(dat3, aes(x = factor(dat3$Flag), y = Total.Mutations,fill = Phase) )
 
 ggsave(paste0("./plots/",Sys.Date(),"-stacked-barplot-Dx-Relapse-AllSamples.pdf"), s, width=10, height=8, device = "pdf")
 
+dat3$logMut <- log(dat3$Total.Mutations,10)
 
 # Plotting Boxplot to compare Mutations across all Dx-Relapse Samples by Phase
 u <- ggplot(dat3, aes(x = Phase_1, y = log(Total.Mutations,10), color = dat3$Phase_1) ) + 
@@ -239,7 +232,13 @@ u <- ggplot(dat3, aes(x = Phase_1, y = log(Total.Mutations,10), color = dat3$Pha
   theme(axis.text.x = element_blank()) + 
   labs(title = "", x = "", y = "Total Mutations")
 
-ggsave(paste0("./plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), u, width=6, height=7, device = "pdf")
 
+v <- print(ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
+               palette = c("dodgerblue3", "firebrick3"), alpha = 0.8,add = "boxplot", 
+               add.params = list(fill = "white"))+
+        stat_compare_means(comparisons = list(c("Diagnosis", "Relapse")), label = "p.signif")+ # Add significance levels
+        stat_compare_means(label.y = 5) + ##global p
+        theme_Publication() + 
+        xlab("") + ylab('log10[Total Mutations]'))
 
-
+ggsave(paste0("./plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), v, width=7, height=6, device = "pdf")
