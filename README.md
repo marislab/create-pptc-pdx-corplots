@@ -31,7 +31,7 @@ The above command will open an interactive shell, where you will find the result
 # RNA VAF Comparisons
 
 ## Summary
-This script calculates variant allele frequencies for all non-silent VEP passed RNA variants and annotates with its DNA counterpart. The resulting file is a DNA MAF with RNA variants and its corresponding variant allele frequencies.
+This script calculates variant allele frequencies for all non-silent VEP passed RNA variants and annotates with its DNA counterpart. The resulting file is a DNA MAF annotated with RNA variants and its corresponding variant allele frequencies.
 
 ## How to run
 `Rscript DNA-RNA-VAF.R <DNA_MAF.rda> <RNA_MAF.maf> <clinical_file.txt>`
