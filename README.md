@@ -6,7 +6,7 @@
 
 
 ## Summary 
-This pipeline plots VAF values for various pairs of Samples (Diagnose-Relapse/Diagnose-Diagnose/Relapse-Relapse, label genes of interest and generates plots of total number of mutation across various samples.
+This pipeline plots VAF values for various pairs of Samples (Diagnose-Relapse/Diagnose-Diagnose/Relapse-Relapse), label genes of interest and generates plots of total number of mutation across various samples.
 
 ## Requirements
 1. [Docker](https://www.docker.com/get-started)
