@@ -254,5 +254,14 @@ v <- ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
 
 ggsave(paste0("./plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), v, width=7, height=6, device = "pdf")
 
+z <- ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
+               palette = c("dodgerblue3", "firebrick3"), alpha = 0.8,add = "boxplot", 
+               add.params = list(fill = "white"))+
+        stat_compare_means(comparisons = list(c("Diagnosis", "Relapse")), label = "p.signif")+ # Add significance levels
+        stat_compare_means(label.y = 5) + ##global p
+        theme_Publication() + 
+        xlab("") + ylab('log10[Total Mutations]')
+
+ggsave(paste0("./plots/",Sys.Date(),"-boxplot(2)-Dx-Relapse-AllSamples.pdf"), z, width=7, height=6, device = "pdf")
 
 
