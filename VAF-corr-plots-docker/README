@@ -1,4 +1,4 @@
-Following files needs to be present in the same folder as this script:
+Following files needs to be present in the same folder:
 1. 2019-02-14-allpdx-clean-maf-240.rda (maf file)
 2. 2019-02-20-pdx-clinical-for-web.txt (clinical file)
 3. all_models.txt
