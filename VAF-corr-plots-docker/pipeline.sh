@@ -21,7 +21,7 @@ Rscript 1-pull-data.r
 
 echo "Organizing files into Dx-Relapse and Same-phase folders..."
 
-mkdir Dx-Relapse Same-Phase plots 
+mkdir Dx-Relapse Same-Phase plots packages
 
 python 2-organize-files.py
 
