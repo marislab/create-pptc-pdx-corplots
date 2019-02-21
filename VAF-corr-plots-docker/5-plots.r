@@ -232,6 +232,7 @@ s <- ggplot(dat3, aes(x = factor(dat3$Flag), y = Total.Mutations,fill = Phase) )
 ggsave(paste0("./plots/",Sys.Date(),"-stacked-barplot-Dx-Relapse-AllSamples.pdf"), s, width=10, height=8, device = "pdf")
 
 dat3$logMut <- log(dat3$Total.Mutations,10)
+
 # Plotting Boxplot to compare Mutations across all Dx-Relapse Samples by Phase
 u <- ggplot(dat3, aes(x = Phase_1, y = log(Total.Mutations,10), color = dat3$Phase_1) ) + 
   geom_boxplot(aes(colour = Phase_1), alpha = 0.5, 
@@ -242,15 +243,14 @@ u <- ggplot(dat3, aes(x = Phase_1, y = log(Total.Mutations,10), color = dat3$Pha
   theme(axis.text.x = element_blank()) + 
   labs(title = "", x = "", y = "Total Mutations")
 
-dat3$logMut <- log(dat3$Total.Mutations,10)
 
-v <- print(ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
+v <- ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
                palette = c("dodgerblue3", "firebrick3"), alpha = 0.8,add = "boxplot", 
                add.params = list(fill = "white"))+
         stat_compare_means(comparisons = list(c("Diagnosis", "Relapse")), label = "p.signif")+ # Add significance levels
         stat_compare_means(label.y = 5) + ##global p
         theme_Publication() + 
-        xlab("") + ylab('log10[Total Mutations]'))
+        xlab("") + ylab('log10[Total Mutations]')
 
 ggsave(paste0("./plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), v, width=7, height=6, device = "pdf")
 
