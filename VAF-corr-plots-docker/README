@@ -12,7 +12,9 @@ Following files needs to be present in the same folder:
 
  Usage: ./pipeline.sh
 
- Requirements: Python/3.6
+ Requirements: 
+ 1. Python/3.6 
+ 2. R 3.5.1
 
  Make sure your all_models.txt and same_phase_all_models.txt follow this format. Each field is tab-separated (Double check your models names are correct)
  Dx-Sample-Model   TSB-for-Dx-Sample    Relapse-Sample-Model   TSB-for-Relapse-Sample
