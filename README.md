@@ -2,7 +2,7 @@
 
 | Contact | Organization | Date |
 |---------|--------------|------|
-|  patelk26@email.chop.edu | CHOP | 2019-02-21 |
+|patelk26@email.chop.edu (Khushbu Patel)| CHOP | 2019-02-21 |
 
 
 ## Summary 
