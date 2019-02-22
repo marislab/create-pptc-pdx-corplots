@@ -4,23 +4,31 @@ set.seed(12345)
 .libPaths("/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 
 if(!require(ggplot2)){
-  install.packages("ggplot2", repos='http://cran.us.r-project.org')
+  install.packages("ggplot2", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 }
 if(!require(ggbeeswarm)){
-  install.packages("ggbeeswarm", repos='http://cran.us.r-project.org')
+  install.packages("ggbeeswarm", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 }
 if(!require(gghighlight)){
-  install.packages("gghighlight", repos='http://cran.us.r-project.org')
+  install.packages("gghighlight", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 }
 if(!require(ggrepel)){
-  install.packages("ggrepel", repos='http://cran.us.r-project.org')
+  install.packages("ggrepel", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 }
 if(!require(ggthemes)){
-  install.packages("ggthemes", repos='http://cran.us.r-project.org')
+  install.packages("ggthemes", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 }
 if(!require(ggpubr)){
-  install.packages("ggpubr", repos='http://cran.us.r-project.org')
+  install.packages("ggpubr", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 }
+
+library("ggplot2", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+library("ggbeeswarm", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+library("gghighlight", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+library("ggrepel", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+library("ggthemes", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+library("ggpubr", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+
 
 
 pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
