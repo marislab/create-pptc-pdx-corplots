@@ -22,14 +22,6 @@ if(!require(ggpubr)){
   install.packages("ggpubr", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 }
 
-library("ggplot2", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggbeeswarm", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("gghighlight", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggrepel", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggthemes", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggpubr", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-
-
 
 pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
 source(paste0(pptc.folder, "theme.R"))
