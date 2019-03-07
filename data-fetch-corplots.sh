@@ -2,6 +2,8 @@
 # Data files for DNA-RNA-VAF.R
 
 cd ~
+mkdir -p pptc-pdx-corplots/data/
+cd ~/pptc-pdx-corplots/data/
 
 # 1. Download DNA MAF file
 wget --output-document='2019-02-14-allpdx-clean-maf-240.rda' https://ndownloader.figshare.com/files/14414198
