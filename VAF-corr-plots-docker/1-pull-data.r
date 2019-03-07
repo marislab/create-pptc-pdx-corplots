@@ -1,9 +1,8 @@
 # Pulling out Dx-Relapse matches from MAF file
 
 # Setting working directory
-setwd("~")
-home <- "~/pptc-pdx-corplots/"
-data_dir <- "~/pptc-pdx-corplots/data"
+setwd(".")
+data_dir <- "./data/"
 
 # load MAF file
 load(paste0(data_dir,"2019-02-14-allpdx-clean-maf-240.rda"), verbose = T)
