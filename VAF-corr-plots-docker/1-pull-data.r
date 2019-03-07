@@ -1,6 +1,12 @@
 # Pulling out Dx-Relapse matches from MAF file
 
-load("2019-02-14-allpdx-clean-maf-240.rda")
+# Setting working directory
+setwd("~")
+home <- "~/pptc-pdx-corplots/"
+data_dir <- "~/pptc-pdx-corplots/data"
+
+# load MAF file
+load(paste0(data_dir,"2019-02-14-allpdx-clean-maf-240.rda"), verbose = T)
 inData <- pptc.merge
 #colnames(inData)
 
