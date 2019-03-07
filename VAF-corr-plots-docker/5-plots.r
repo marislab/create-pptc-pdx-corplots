@@ -30,10 +30,11 @@ library("ggthemes", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-
 library("ggpubr", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 
 pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
+data.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/data/"
 source(paste0(pptc.folder, "theme.R"))
 
 # To Fetch Histologies from Histology.Detailed column 
-df_hist <- read.table("2019-02-20-pdx-clinical-for-web.txt", sep = "\t", header = T)
+df_hist <- read.table(paste0(data.folder,"2019-02-20-pdx-clinical-for-web.txt"), sep = "\t", header = T)
 
 
 # Storing all Dx-Relapse Sample pairs in a list so each file can be processed iteratively
