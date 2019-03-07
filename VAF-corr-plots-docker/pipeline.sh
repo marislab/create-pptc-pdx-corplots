@@ -24,6 +24,8 @@ wget --output-document='2019-02-14-allpdx-clean-maf-240.rda' https://ndownloader
 # 2. Clinical file
 wget --output-document='pptc-pdx-clinical-web.txt' https://ndownloader.figshare.com/files/14508536
 
+cd ..
+
 echo "Pulling the data from MAF file..."
 
 Rscript 1-pull-data.r
