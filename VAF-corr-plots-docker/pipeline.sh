@@ -15,8 +15,8 @@
 # Usage: ./pipeline.sh
 
 echo "Fetching data files..."
-mkdir ~/data/
-cd ~/data/
+mkdir data/
+cd data/
 
 # 1. Download DNA MAF file
 wget --output-document='2019-02-14-allpdx-clean-maf-240.rda' https://ndownloader.figshare.com/files/14414198
