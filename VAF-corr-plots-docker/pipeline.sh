@@ -15,7 +15,7 @@
 # Usage: ./pipeline.sh
 
 echo "Fetching data files..."
-mkdir data/
+mkdir data/ final-gene-lists/
 cd data/
 
 # 1. Download DNA MAF file
@@ -23,6 +23,15 @@ wget --output-document='2019-02-14-allpdx-clean-maf-240.rda' https://ndownloader
 
 # 2. Clinical file
 wget --output-document='pptc-pdx-clinical-web.txt' https://ndownloader.figshare.com/files/14508536
+
+cd ../final-gene-lists/
+wget --output-document='leukemia-goi-list.txt' https://ndownloader.figshare.com/files/14541185
+wget --output-document='osteosarcoma-goi-list.txt' https://ndownloader.figshare.com/files/14541191
+wget --output-document='renal-goi-list.txt' https://ndownloader.figshare.com/files/14541197
+wget --output-document='brain-goi-list.txt' https://ndownloader.figshare.com/files/14541182
+wget --output-document='neuroblastoma-goi-list.txt' https://ndownloader.figshare.com/files/14541188
+wget --output-document='rare-goi-list.txt' https://ndownloader.figshare.com/files/14541194
+wget --output-document='sarcoma-goi-list.txt' https://ndownloader.figshare.com/files/14541200
 
 cd ..
 
