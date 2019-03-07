@@ -8,17 +8,19 @@ if(!require(data.table)){
 
 # Setting working directory
 setwd("~")
-# set directories for saving files, specify histology of interest
-home <- "~/DNA-RNA-variants/"
+home <- "~/pptc-pdx-corplots/"
+data_dir <- "~/pptc-pdx-corplots/data"
 # create new directories in home
-dir.create(file.path(home,"result"))
+dir.create(file.path(home,"dna-rna-vaf-result"))
+
+
 
 args <- commandArgs(trailingOnly = TRUE)
 
 
 # Loading dna.maf
 print("loading dna maf...")
-load(paste0(home,"2019-02-14-allpdx-clean-maf-240.rda"), verbose = T) # loads dna.maf as pptc.merge
+load(paste0(data_dir,"2019-02-14-allpdx-clean-maf-240.rda"), verbose = T) # loads dna.maf as pptc.merge
 
 
 # reading the RNA.MAF file
@@ -39,7 +41,7 @@ rm(rna.maf)
 gc()
 
 # reading clinical file to map models to RNA MAF
-clinical <- fread(paste0(home,"pptc-pdx-clinical-web.txt"), header = T, sep = "\t")
+clinical <- fread(paste0(data_dir,"pptc-pdx-clinical-web.txt"), header = T, sep = "\t")
 clinical.subset <- subset(clinical, select = c("RNA.human.bam.filename", "Model"))
 
 # merging RNA MAF file with clinical file
@@ -57,6 +59,6 @@ resulting_matches <- merge(pptc.merge,rna.model, all.x = T, by = "concat_col")
 
 
 # Save new DNA MAF with RNA VAF information as RDA and MAF file
-save(rna.model, file = paste0(home,"result/",Sys.Date(),"-allpdx-clean-maf-rna-240.rda") )
-write.table(rna.model, file = paste0(home,"result/",Sys.Date(),"-allpdx-clean-maf-rna-240.maf"), sep = "\t", row.names = F, quote = F, col.names = T)
+save(rna.model, file = paste0(home,"dna-rna-vaf-result/",Sys.Date(),"-allpdx-clean-maf-rna-240.rda") )
+write.table(rna.model, file = paste0(home,"dna-rna-vaf-result/",Sys.Date(),"-allpdx-clean-maf-rna-240.maf"), sep = "\t", row.names = F, quote = F, col.names = T)
 
