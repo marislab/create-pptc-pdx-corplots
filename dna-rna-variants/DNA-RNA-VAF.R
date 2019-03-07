@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript 
 
-# Usage: ./DNA-RNA-VAF.R <DNA_MAF.rda> <RNA_MAF.maf> <clinical_file.txt>
+# Usage: ./DNA-RNA-VAF.R <RNA_MAF.maf>
 
 if(!require(data.table)){
   install.packages("data.table", repos='http://cran.us.r-project.org')
@@ -11,11 +11,11 @@ args <- commandArgs(trailingOnly = TRUE)
 
 # Loading dna.maf
 print("loading dna maf...")
-load(args[1]) # loads dna.maf as pptc.merge
+load("2019-02-14-allpdx-clean-maf-240.rda") # loads dna.maf as pptc.merge
 
 # reading the RNA.MAF file
 print("reading rna maf file...")
-rna <- fread(args[2], header = T,sep="\t")
+rna <- fread(args[1], header = T,sep="\t")
 
 # Calculating RNA VAF values
 rna.maf <- setDT(rna)[,RNA.VAF:= (t_alt_count / (t_ref_count + t_alt_count) )]
@@ -31,7 +31,7 @@ rm(rna.maf)
 gc()
 
 # reading clinical file to map models to RNA MAF
-clinical <- fread(args[3], header = T, sep = "\t")
+clinical <- fread("pptc-pdx-clinical-web.txt", header = T, sep = "\t")
 clinical.subset <- subset(clinical, select = c("RNA.human.bam.filename", "Model"))
 
 # merging RNA MAF file with clinical file
