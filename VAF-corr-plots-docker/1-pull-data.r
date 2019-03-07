@@ -1,11 +1,11 @@
 # Pulling out Dx-Relapse matches from MAF file
 
-# Setting working directory
-setwd(".")
-data_dir <- "./data/"
+# Setting directory paths
+pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
+data.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/data/"
 
 # load MAF file
-load(paste0(data_dir,"2019-02-14-allpdx-clean-maf-240.rda"), verbose = T)
+load(paste0(data.folder,"2019-02-14-allpdx-clean-maf-240.rda"), verbose = T)
 inData <- pptc.merge
 #colnames(inData)
 
