@@ -6,12 +6,20 @@ if(!require(data.table)){
   install.packages("data.table", repos='http://cran.us.r-project.org')
 }
 
+# Setting working directory
+setwd("~")
+# set directories for saving files, specify histology of interest
+home <- "~/DNA-RNA-variants/"
+# create new directories in home
+dir.create(file.path(home,"result"))
+
 args <- commandArgs(trailingOnly = TRUE)
 
 
 # Loading dna.maf
 print("loading dna maf...")
-load("2019-02-14-allpdx-clean-maf-240.rda") # loads dna.maf as pptc.merge
+load(paste0(home,"2019-02-14-allpdx-clean-maf-240.rda"), verbose = T) # loads dna.maf as pptc.merge
+
 
 # reading the RNA.MAF file
 print("reading rna maf file...")
@@ -31,7 +39,7 @@ rm(rna.maf)
 gc()
 
 # reading clinical file to map models to RNA MAF
-clinical <- fread("pptc-pdx-clinical-web.txt", header = T, sep = "\t")
+clinical <- fread(paste0(home,"pptc-pdx-clinical-web.txt"), header = T, sep = "\t")
 clinical.subset <- subset(clinical, select = c("RNA.human.bam.filename", "Model"))
 
 # merging RNA MAF file with clinical file
@@ -49,6 +57,6 @@ resulting_matches <- merge(pptc.merge,rna.model, all.x = T, by = "concat_col")
 
 
 # Save new DNA MAF with RNA VAF information as RDA and MAF file
-save(rna.model, file = paste0(Sys.Date(),"-allpdx-clean-maf-241.MAF.rda") )
-write.table(rna.model, file = paste0(Sys.Date(),"-pptc-RNA-VEPpass-nonsilent.maf"), sep = "\t", row.names = F, quote = F, col.names = T)
+save(rna.model, file = paste0(home,"result/",Sys.Date(),"-allpdx-clean-maf-rna-240.rda") )
+write.table(rna.model, file = paste0(home,"result/",Sys.Date(),"-allpdx-clean-maf-rna-240.maf"), sep = "\t", row.names = F, quote = F, col.names = T)
 
