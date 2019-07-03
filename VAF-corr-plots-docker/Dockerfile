@@ -21,7 +21,7 @@ RUN apt-get -y upgrade
 RUN apt install -y python3-pip
 #RUN pip install --upgrade pip
 ARG PANDAS_VERSION=0.23.0
-RUN pip install pandas==${PANDAS_VERSION}
+RUN pip3 install pandas==${PANDAS_VERSION}
 
 
 # Setting working directory
