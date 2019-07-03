@@ -1,40 +1,34 @@
+# .libPaths("/Users/patelk26/anaconda3/lib/R/library") # Change lib paths according to your Terminal lib path, that's where all the packages associated with the script will be installed.
 set.seed(12345)
 
 # Checking for required packages, if not found, will be installed
-.libPaths("/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 
 if(!require(ggplot2)){
-  install.packages("ggplot2", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+  install.packages("ggplot2", repos='http://cran.us.r-project.org')
 }
 if(!require(ggbeeswarm)){
-  install.packages("ggbeeswarm", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+  install.packages("ggbeeswarm", repos='http://cran.us.r-project.org')
 }
 if(!require(gghighlight)){
-  install.packages("gghighlight", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+  install.packages("gghighlight", repos='http://cran.us.r-project.org')
 }
 if(!require(ggrepel)){
-  install.packages("ggrepel", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+  install.packages("ggrepel", repos='http://cran.us.r-project.org')
 }
 if(!require(ggthemes)){
-  install.packages("ggthemes", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+  install.packages("ggthemes", repos='http://cran.us.r-project.org')
 }
 if(!require(ggpubr)){
-  install.packages("ggpubr", repos='http://cran.us.r-project.org', lib = "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
+  install.packages("ggpubr", repos='http://cran.us.r-project.org')
 }
 
-library("ggplot2", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggbeeswarm", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("gghighlight", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggrepel", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggthemes", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
-library("ggpubr", lib.loc="/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/packages/")
 
-pptc.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/"
-data.folder <- "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/data/"
-source(paste0(pptc.folder, "theme.R"))
+
+pptc.folder <- "~/Box Sync/PPTC-genomics-collaboration/"
+source(paste0(pptc.folder, "Manuscript/scripts/theme.R"))
 
 # To Fetch Histologies from Histology.Detailed column 
-df_hist <- read.table(paste0(data.folder,"pptc-pdx-clinical-web.txt"), sep = "\t", header = T)
+df_hist <- read.table("~/Box Sync/PPTC-genomics-collaboration/Data/clinical/2019-06-21-pdx-clinical-final-for-paper.txt", sep = "\t", header = T)
 
 
 # Storing all Dx-Relapse Sample pairs in a list so each file can be processed iteratively
@@ -218,7 +212,7 @@ ggsave(paste0("./plots/",Sys.Date(),"-ALL-105-115-tot_mut-barplot.pdf"), r, widt
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------#
 
 # Mutations across all Dx-Relapse Samples (Stacked barplot)
-dat3 <- read.csv("total_Mutations-All-Dx-Relapse-Models.csv", header=TRUE)
+dat3 <- read.csv("./total_Mutations-All-Dx-Relapse-Models.csv", header=TRUE)
 
 dat3[is.na(dat3)] = 0
 
@@ -226,7 +220,7 @@ dat3$Phase <- factor(dat3$Phase, levels = c("Relapse 3","Relapse 1","Diagnosis")
 
 # Plotting Stacked-barplot for all Dx-Relapse samples
 
-s <- ggplot(dat3, aes(x = factor(dat3$Flag), y = Total.Mutations,fill = Phase) )+  
+s <- ggplot(dat3, aes(x = factor(dat3$Flag), y = Total.Mutations,fill = Phase))+  
   geom_col(position = position_stack(reverse = TRUE)) +
   scale_fill_manual(values = c("gray", "firebrick3", "dodgerblue3")) +
   geom_bar( stat="identity", width = 0.9) + 
@@ -235,28 +229,20 @@ s <- ggplot(dat3, aes(x = factor(dat3$Flag), y = Total.Mutations,fill = Phase) )
   theme(axis.text.x = element_text(angle = 85, hjust = 1, vjust =1)) + 
   labs(title = "", x = "Models", y = "Total Mutations") +
   ylim(0,1000)
-
 ggsave(paste0("./plots/",Sys.Date(),"-stacked-barplot-Dx-Relapse-AllSamples.pdf"), s, width=10, height=8, device = "pdf")
 
-dat3$logMut <- log(dat3$Total.Mutations,10)
-
-# Plotting Boxplot to compare Mutations across all Dx-Relapse Samples by Phase
-u <- ggplot(dat3, aes(x = Phase_1, y = log(Total.Mutations,10), color = dat3$Phase_1) ) + 
-  geom_boxplot(aes(colour = Phase_1), alpha = 0.5, 
-               size = 2, outlier.size = 4, notch = T, na.rm = T)+
-  geom_jitter(alpha = 0.2, size = 4) + 
-  scale_color_manual(name = "Phase",values = c("dodgerblue3", "firebrick3")) +
-  theme_Publication() +
-  theme(axis.text.x = element_blank()) + 
-  labs(title = "", x = "", y = "Total Mutations")
-
-
+dat3$logMut <- log(dat3$Total.Mutations,2)
+dat3$facet <- "Matched Pairs"
 v <- print(ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
-               palette = c("dodgerblue3", "firebrick3"), alpha = 0.8,add = "boxplot", 
+               palette = dxrelcol, alpha = 0.8,add = "boxplot",
                add.params = list(fill = "white"))+
-        stat_compare_means(comparisons = list(c("Diagnosis", "Relapse")), label = "p.signif")+ # Add significance levels
-        stat_compare_means(label.y = 5) + ##global p
+        stat_compare_means(comparisons = list(c("Diagnosis", "Relapse")), label.y = c(15), label = "p.format")+ # Add significance levels
+        #stat_compare_means(label.y.npc = "top") + ##global p
+        facet_grid(~facet) +##global p
         theme_Publication() + 
-        xlab("") + ylab('log10[Total Mutations]'))
+        xlab("") + ylab('log2[Total Mutations]')+
+        scale_y_continuous(limits=c(0,20)))
+ggsave(paste0("./plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), v, width=6, height=6, device = "pdf")
 
-ggsave(paste0("./plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), v, width=7, height=6, device = "pdf")
+
+
