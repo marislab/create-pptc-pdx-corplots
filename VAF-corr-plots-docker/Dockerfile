@@ -19,6 +19,7 @@ RUN apt-get -y upgrade
 RUN apt install -y python3-pip
 ONBUILD COPY requirements.txt /home/user/
 ONBUILD RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip3 install -r requirements.txt
 ARG PANDAS_VERSION=0.23.0
 RUN pip3 install pandas==${PANDAS_VERSION}
 
