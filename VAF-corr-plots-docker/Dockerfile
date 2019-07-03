@@ -17,7 +17,7 @@ RUN git clone https://github.com/marislab/create-pptc-pdx-corplots.git
 
 # Install all the software needed to run the pipeline
 #RUN apt-get install -y python3-setuptools python3-docutils python3-flask python3 python3.6 python3.7 python-pip
-
+RUN apt-get install -y python3 python3.6 python-pip
 RUN pip install --upgrade pip
 ARG PANDAS_VERSION=0.23.0
 RUN pip install pandas==${PANDAS_VERSION}
