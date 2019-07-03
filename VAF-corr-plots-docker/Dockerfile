@@ -26,5 +26,5 @@ WORKDIR /home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker
 
 
 # Executing scripts
-RUN [ "/usr/bin/bash", "/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/pipeline.sh" ]
+RUN [ '/usr/bin/bash', '/home/user/create-pptc-pdx-corplots/VAF-corr-plots-docker/pipeline.sh' ]
 
