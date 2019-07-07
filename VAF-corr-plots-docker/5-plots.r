@@ -213,6 +213,7 @@ ggsave(paste0("./plots/",Sys.Date(),"-ALL-105-115-tot_mut-barplot.pdf"), r, widt
 
 # Mutations across all Dx-Relapse Samples (Stacked barplot)
 dat3 <- read.csv("./total_Mutations-All-Dx-Relapse-Models.csv", header=TRUE)
+#dat3 <- read.csv("~/Box Sync/PPTC-genomics-collaboration/Manuscript/scripts/cor-plot-scripts/total_Mutations-All-Dx-Relapse-Models.csv", header=TRUE)
 
 dat3[is.na(dat3)] = 0
 
@@ -234,7 +235,7 @@ ggsave(paste0("./plots/",Sys.Date(),"-stacked-barplot-Dx-Relapse-AllSamples.pdf"
 dat3$logMut <- log(dat3$Total.Mutations,2)
 dat3$facet <- "Matched Pairs"
 v <- print(ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
-               palette = dxrelcol, alpha = 0.8,add = "boxplot",
+               palette = dxrelcol, alpha = 0.8,#add = "boxplot",
                add.params = list(fill = "white"))+
         stat_compare_means(comparisons = list(c("Diagnosis", "Relapse")), label.y = c(15), label = "p.format")+ # Add significance levels
         #stat_compare_means(label.y.npc = "top") + ##global p
@@ -243,6 +244,7 @@ v <- print(ggviolin(dat3, x = "Phase_1", y = "logMut", fill = "Phase_1",
         xlab("") + ylab('log2[Total Mutations]')+
         scale_y_continuous(limits=c(0,20)))
 ggsave(paste0("./plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), v, width=6, height=6, device = "pdf")
+#ggsave(paste0("~/Box Sync/PPTC-genomics-collaboration/Manuscript/scripts/cor-plot-scripts/plots/",Sys.Date(),"-boxplot-Dx-Relapse-AllSamples.pdf"), v, width=6, height=6, device = "pdf")
 
 
 
